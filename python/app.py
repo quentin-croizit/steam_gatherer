@@ -12,7 +12,6 @@ arguments_types = [["preset", "What Preset would like to use?", "[\s\S]*"],
                    ["number", "How many reviews do you want? [1-∞]", "[0-9]+"]]
 
 arguments_list = ["", "", "", "", "", "", "", ""]
-command = ""
 
 visuals.clearConsole()
 
@@ -60,13 +59,14 @@ def callDotnetCommand():  # Creates the command for the dotnet program using the
     for i in range(1, len(arguments_types)):
         if arguments_list[i] != "":
             command += arguments_types[i] + "=" + arguments_list[i] + " "
-    gatherDisplay()
+    gatherDisplay(command)
 
 
-def gatherDisplay():  # Displays and calls the command sent to the CLI and exits the python program
+def gatherDisplay(cli_command):  # Displays and calls the command sent to the CLI and exits the python program
+    visuals.printAppBox(arguments_list)
     print("Command sent:")
-    print(command)
-    os.system(command)
+    print(cli_command)
+    os.system(cli_command)
     os._exit(0)
 
 
