@@ -1,0 +1,17 @@
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\bin\Debug\net6.0\steam_gatherer.exe
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\bin\Debug\net6.0\steam_gatherer.deps.json
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\bin\Debug\net6.0\steam_gatherer.runtimeconfig.json
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\bin\Debug\net6.0\steam_gatherer.dll
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\bin\Debug\net6.0\steam_gatherer.pdb
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.csproj.AssemblyReference.cache
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.GeneratedMSBuildEditorConfig.editorconfig
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.AssemblyInfoInputs.cache
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.AssemblyInfo.cs
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.csproj.CoreCompileInputs.cache
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.dll
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\refint\steam_gatherer.dll
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.pdb
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.genruntimeconfig.cache
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\ref\steam_gatherer.dll
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\bin\Debug\net6.0\CsvHelper.dll
+Q:\Files\Klabater\Moonshine Inc\steam_gatherer\obj\Debug\net6.0\steam_gatherer.csproj.CopyComplete
