@@ -1,0 +1,40 @@
+╔════════════════════════════════════════════════════════════════════════╗
+║    _____ _                          _____            _                 ║
+║   / ____| |                        |  __ \          (_)                ║
+║  | (___ | |_ ___  __ _ _ __ ___    | |__) |_____   ___  _____      __  ║
+║   \___ \| __/ _ \/ _` | '_ ` _ \   |  _  // _ \ \ / / |/ _ \ \ /\ / /  ║
+║   ____) | ||  __/ (_| | | | | | |  | | \ \  __/\ V /| |  __/\ V  V /   ║
+║  |_____/ \__\___|\__,_|_| |_| |_|  |_|  \_\___| \_/ |_|\___| \_/\_/    ║
+║    _____       _   _                              _______          _   ║
+║   / ____|     | | | |                            |__   __|        | |  ║
+║  | |  __  __ _| |_| |__   ___ _ __ ___ _ __         | | ___   ___ | |  ║
+║  | | |_ |/ _` | __| '_ \ / _ \ '__/ _ \ '__|        | |/ _ \ / _ \| |  ║
+║  | |__| | (_| | |_| | | |  __/ | |  __/ |           | | (_) | (_) | |  ║
+║   \_____|\__,_|\__|_| |_|\___|_|  \___|_|           |_|\___/ \___/|_|  ║
+║                                                                        ║
+╠════════════════════════════════════════════════════════════════════════╣
+
+║ Current Arguments:                                                     ║
+╟────────────────────────────────────────────────────────────────────────╢
+
+║ Additional Commands:                                                   ║
+╟────────────────────────────────────────────────────────────────────────╢
+║ Gather: Start gathering process                                        ║
+║ preset*: A * after a preset name, will only fill empty arguments.      ║
+║ Reset: Resets the arguments already entered                            ║
+║ Back: If entering an argument value, goes back to argument selection   ║
+║ Exit: Stops process                                                    ║
+║                                                                        ║
+║                                                                        ║
+
+║ Help:                                                                  ║
+╟────────────────────────────────────────────────────────────────────────╢
+║ To enter a new value for a given argument, enter the arguments name    ║
+║ and then enter the value you want to give it. Different arguments can  ║
+║ can hold different possible values. Additional commands are available, ║
+║ to see them type 'commands'. You can also enter presets. To do that    ║
+║ type 'preset' and then enter the preset's name. This allows you to     ║
+║ fill in the 7 arguments at once. To make new presets, open config.txt  ║
+║ and duplicate then modify the others. Presets' names must be unique.   ║
+
+╚════════════════════════════════════════════════════════════════════════╝

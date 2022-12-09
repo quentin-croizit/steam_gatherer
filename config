@@ -1,0 +1,7 @@
+# MAIN CONFIG
+Report Folder: "reports/"
+
+# GATHERING PRESETS {id,filter,lang,range,type,purchase,number}
+"default"   {1245620,all,english,5,all,all,50}
+"all"       {1245620,all,all,365,all,all,50}
+"test"      {1245620,recent,all,365,all,all,500}
