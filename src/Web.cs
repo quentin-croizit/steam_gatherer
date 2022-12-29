@@ -34,6 +34,9 @@ namespace Gatherer
             string tempFinalURL = requestURL + requestReviewNumber + "&cursor=" + Encode(requestCursor);
             string requestResult = client.GetAsync(tempFinalURL).Result.Content.ReadAsStringAsync().Result;
 
+            //Console.WriteLine(tempFinalURL);
+            //Console.WriteLine(Parser.ParseAPIRequestResult(requestResult).reviews.Count);
+
             return Parser.ParseAPIRequestResult(requestResult);
         }
 

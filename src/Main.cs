@@ -34,6 +34,7 @@ namespace Gatherer
         static private DateTime requestTime;
         static private string requestURL = "";
         static private string requestCursor = "*";
+        static private List<string> encounteredCursors = new List<string>();
         static private int reviewPerRequest = 20;
         static private int reviewNumberRemaining = 0;
 
@@ -49,15 +50,21 @@ namespace Gatherer
 
             while (reviewNumberRemaining > 0)
             {
+
                 requestResult = Web.MakeWebRequest(requestURL, Math.Min(reviewPerRequest, reviewNumberRemaining), requestCursor);
 
                 reviewsAll.AddRange(requestResult.reviews);
                 AddQuerySummary(requestResult.query_summary);
 
+                if (encounteredCursors.Contains(requestResult.cursor) || requestResult.reviews.Count < reviewPerRequest)
+                {
+                    reviewNumberRemaining = 0;
+                }
+
+                encounteredCursors.Add(requestResult.cursor);
                 requestCursor = requestResult.cursor;
                 reviewNumberRemaining -= reviewPerRequest;
                 reviewNumberRemaining = Math.Max(reviewNumberRemaining, 0);
-
                 Thread.Sleep(100);
             }
 
