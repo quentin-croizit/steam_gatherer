@@ -1,71 +1,51 @@
-import tkinter
-import tkinter.messagebox
-import customtkinter
+from tkinter import *
 
-customtkinter.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
-customtkinter.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
+app = Tk()
+app.title('Steam Gatherer Tool')
+app.geometry('{}x{}'.format(500, 350))
 
+# App Layout
+app.grid_columnconfigure(1, weight=1)
+app.grid_rowconfigure(0, weight=1)
+app.minsize(200, 200)
 
-class App(customtkinter.CTk):
-    def __init__(self):
-        super().__init__()
+# Frames
+frame_left = Frame(app, bg='grey25')
+frame_left.grid(column=0, row=0, rowspan=4, sticky="nsw")
 
-        # configure window
-        self.title("Steam Gatherer Tool")
-        self.geometry(f"{1100}x{580}")
+frame_bottom = Frame(app, bg='grey50')
+frame_bottom.grid(column=1, columnspan=2, row=1, rowspan=3, sticky="swe")
+frame_bottom.columnconfigure(1, weight=1)
 
-        # configure grid layout (4x4)
-        self.grid_columnconfigure(1, weight=1)
-        self.grid_rowconfigure((0, 1, 2), weight=1)
+# Variables
+boolvar = BooleanVar(frame_bottom, False)
 
-        # create sidebar frame with widgets
-        self.sidebar_frame = customtkinter.CTkFrame(self, width=140, corner_radius=0)
-        self.sidebar_frame.grid(row=0, column=0, rowspan=4, sticky="nsew")
-        self.sidebar_frame.grid_rowconfigure(4, weight=1)
-        self.logo_label = customtkinter.CTkLabel(self.sidebar_frame, text="Gatherer", font=customtkinter.CTkFont(size=20, weight="bold"))
-        self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
-        self.sidebar_arguments = customtkinter.CTkButton(self.sidebar_frame, command=self.sidebar_button_event)
-        self.sidebar_arguments.grid(row=1, column=0, padx=20, pady=10)
-        self.sidebar_presets = customtkinter.CTkButton(self.sidebar_frame, command=self.sidebar_button_event)
-        self.sidebar_presets.grid(row=2, column=0, padx=20, pady=10)
-        self.sidebar_more = customtkinter.CTkButton(self.sidebar_frame, command=self.sidebar_button_event)
-        self.sidebar_more.grid(row=3, column=0, padx=20, pady=10)
-        self.appearance_mode_label = customtkinter.CTkLabel(self.sidebar_frame, text="Appearance Mode:", anchor="w")
-        self.appearance_mode_label.grid(row=5, column=0, padx=20, pady=(10, 0))
-        self.appearance_mode_optionemenu = customtkinter.CTkOptionMenu(self.sidebar_frame, values=["Light", "Dark", "System"],
-                                                                       command=self.change_appearance_mode_event)
-        self.appearance_mode_optionemenu.grid(row=6, column=0, padx=20, pady=(10, 20))
+# Functions
+def activateCheck():
+            if boolvar.get() == 1:          #whenever checked
+                entry_command.config(state=NORMAL)
+            elif boolvar.get() == 0:        #whenever unchecked
+                entry_command.config(state=DISABLED)
 
-        # create main entry and button
-        self.entry = customtkinter.CTkEntry(self, placeholder_text="CTkEntry")
-        self.entry.grid(row=3, column=1, columnspan=1, padx=(20, 0), pady=(20, 20), sticky="nsew")
+# Left Frame Widgets
+button_arguments = Button(frame_left, text='Arguments',anchor="w")
+button_arguments.grid(row=0, sticky="ew", ipadx=5, ipady=5, padx=5, pady=(5,0))
 
-        self.main_button_1 = customtkinter.CTkButton(master=self, fg_color="transparent", border_width=2, text_color=("gray10", "#DCE4EE"))
-        self.main_button_1.grid(row=3, column=2, padx=(20, 20), pady=(20, 20), sticky="nsew")
+button_preset = Button(frame_left, text='Presets',anchor="w")
+button_preset.grid(row=1, sticky="ew", ipadx=5, ipady=5, padx=5, pady=(5,0))
 
-        # create textbox
-        self.textbox = customtkinter.CTkTextbox(self, width=250)
-        self.textbox.grid(row=0, column=1, columnspan=2, padx=(20, 20), pady=(20, 0), sticky="nsew")
+button_more = Button(frame_left, text='More',anchor="w")
+button_more.grid(row=2, sticky="ew", ipadx=5, ipady=5, padx=5, pady=(5,0))
 
-        # set default values
-        self.sidebar_arguments.configure(state="enabled", text="Arguments")
-        self.sidebar_presets.configure(state="disabled", text="Presets")
-        self.sidebar_more.configure(state="enabled", text="More")
-        self.appearance_mode_optionemenu.set("Dark")
-        self.textbox.insert("0.0", "CTkTextbox\n\n" + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\n" * 20)
+# Bottom Frame Widgets
+checkbox_custom_command= Checkbutton(frame_bottom, bg='grey50', activebackground="grey50", variable=boolvar, command=activateCheck)
+checkbox_custom_command.grid(row=0, column=0, sticky="w", ipadx=5, ipady=5, padx=(5,0), pady=5)
 
+entry_command= Entry(frame_bottom, state="disabled", textvariable="Text set by button", disabledbackground="grey75")
+entry_command.grid(row=0, column=1, sticky="ew")
 
-    def open_input_dialog_event(self):
-        dialog = customtkinter.CTkInputDialog(text="Type in a number:", title="CTkInputDialog")
-        print("CTkInputDialog:", dialog.get_input())
+button_gather = Button(frame_bottom, text='Gather',anchor="w")
+button_gather.grid(row=0, column=2, sticky="e", pady=(1,0), padx=10)
 
-    def change_appearance_mode_event(self, new_appearance_mode: str):
-        customtkinter.set_appearance_mode(new_appearance_mode)
-
-    def sidebar_button_event(self):
-        print("sidebar_button click")
-
-
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+# Setup
+app.mainloop()
