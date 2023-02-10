@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 import os
+import re 
 
 app = Tk()
 app.title('Steam Gatherer Tool')
@@ -55,6 +56,21 @@ def hideMiddleFrames():
     button_more.configure(state="normal")
 
 def write_in_entry_command(var, index, mode):
+    arg_variable_id.set(re.sub("[^0-9]", "", arg_variable_id.get()))
+    arg_variable_range.set(re.sub("[^0-9]", "", arg_variable_range.get()))
+    arg_variable_number.set(re.sub("[^0-9]", "", arg_variable_number.get()))
+    if(arg_variable_id.get() == ""):
+        arg_variable_id.set("0")
+    if(arg_variable_range.get() == ""):
+        arg_variable_range.set("1")
+    if(int(arg_variable_range.get()) < 1):
+        arg_variable_range.set("1")
+    if(int(arg_variable_range.get()) > 365):
+        arg_variable_range.set("365")
+    if(arg_variable_number.get() == ""):
+        arg_variable_number.set("1")
+    if(int(arg_variable_number.get()) < 1):
+        arg_variable_number.set("1")
     command = "dotnet run -- "
     command += (" {}".format(arg_variable_id.get()))
     command += (" {}".format(arg_variable_filter.get()))
