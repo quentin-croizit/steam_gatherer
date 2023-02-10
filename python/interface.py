@@ -1,9 +1,10 @@
 from tkinter import *
 from PIL import ImageTk, Image
-import math
+import os
 
 app = Tk()
 app.title('Steam Gatherer Tool')
+app.iconphoto(False, PhotoImage(file='python\logo.png'))
 app.geometry('{}x{}'.format(700, 400))
 
 # App Layout
@@ -67,9 +68,12 @@ def write_in_entry_command(var, index, mode):
     entry_command.insert(0, command)
     entry_command.configure(state="disabled")
 
+def start_gather_command():
+    print(entry_command.get())
+    os.system(entry_command.get())
+
 # Variables
 custom_command_inputable = BooleanVar(frame_bottom, False)
-image_info_icon = ImageTk.PhotoImage(Image.open("python/info_icon.png"))
 
 arg_variable_id = StringVar(app)
 arg_variable_id.set("0")
@@ -122,7 +126,7 @@ entry_command.insert(-1, 'dotnet run --')
 entry_command.grid(row=0, column=1, sticky="ew")
 entry_command.configure(state="disabled")
 
-button_gather = Button(frame_bottom, text='Gather',anchor="w")
+button_gather = Button(frame_bottom, text='Gather',anchor="w", command=start_gather_command)
 button_gather.grid(row=0, column=2, sticky="e", pady=(1,0), padx=10)
 
 # Arguments Frame Widgets
