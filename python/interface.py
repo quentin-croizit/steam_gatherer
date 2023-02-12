@@ -1,7 +1,14 @@
+# ---------------------------------------------------------------------------- #
+# Source code by Antimatter/Quentin     (http://www.quentin-croizit.github.io) #
+# ---------------------------------------------------------------------------- #
+
 from tkinter import *
+import tkinter.font as tkFont
 from PIL import ImageTk, Image
 import os
-import re 
+import re
+from functools import partial
+import presets
 
 app = Tk()
 app.title('Steam Gatherer Tool')
@@ -11,7 +18,7 @@ app.geometry('{}x{}'.format(700, 400))
 # App Layout
 app.grid_columnconfigure(1, weight=1)
 app.grid_rowconfigure(0, weight=1)
-app.minsize(375, 325)
+app.resizable(width=False, height=False)
 
 # Frames
 frame_left = Frame(app, bg='grey25')
@@ -88,7 +95,23 @@ def start_gather_command():
     print(entry_command.get())
     os.system(entry_command.get())
 
+def apply_preset(preset_values):
+    arg_variable_id.set(preset_values[0])
+    arg_variable_filter.set(preset_values[1])
+    arg_variable_lang.set(preset_values[2])
+    arg_variable_range.set(preset_values[3])
+    arg_variable_type.set(preset_values[4])
+    arg_variable_purchase.set(preset_values[5])
+    arg_variable_number.set(preset_values[6])
+    showArgumentFrame()
+
+# Fonts
+font_preset_arg = tkFont.Font(size=7)
+
 # Variables
+presets.gatherPreset()
+list_presets = presets.presets
+
 custom_command_inputable = BooleanVar(frame_bottom, False)
 
 arg_variable_id = StringVar(app)
@@ -187,6 +210,27 @@ entry_arg_number.place(x=80, y=240, width=150, height=20)
 # Presets Frame Widgets
 label_presets = Label(frame_presets, text="Presets", anchor="w", font=("Arial", 20))
 label_presets.place(x=10, y=10)
+
+print(list_presets)
+
+for i in range(len(list_presets)):
+    preset_name = list_presets[i][0]
+    Button(frame_presets, text=preset_name, command=partial(apply_preset,list_presets[i][1])).place(x=10, y=60+(60*i), width=80, height=40)
+    label_id = "ID: {id}, ".format(id=list_presets[i][1][0])
+    label_filter = "Filter: {filter}, ".format(filter=list_presets[i][1][1])
+    label_lang = "Lang: {lang}, ".format(lang=list_presets[i][1][2])
+    label_range = "Range: {range}, ".format(range=list_presets[i][1][3])
+    label_type = "Type: {type}, ".format(type=list_presets[i][1][4])
+    label_purchase = "Purchase: {purchase}, ".format(purchase=list_presets[i][1][5])
+    label_number = "Number: {number}".format(number=list_presets[i][1][6])
+    preset_label_text = label_id + label_filter + label_lang + label_range + label_type + label_purchase + label_number
+    preset_label_description = list_presets[i][1][7]
+
+    Label(frame_presets, text=preset_label_text, anchor="w", font=font_preset_arg).place(x=100, y=82+(60*i), width=500, height=20)
+    Label(frame_presets, text=preset_label_description, anchor="w").place(x=100, y=61+(60*i), width=500, height=20) 
+
+button_arguments = Button(frame_left, text='Arguments',anchor="w", command=showArgumentFrame)
+button_arguments.grid(row=0, sticky="ew", ipadx=5, ipady=5, padx=5, pady=(5,0))
 
 # More Frame Widgets
 label_more = Label(frame_more, text="More", anchor="w", font=("Arial", 20))
