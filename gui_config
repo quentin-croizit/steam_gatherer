@@ -1,0 +1,29 @@
+--- Main Frames
+main_frame_width = 700,
+main_frame_height = 400,
+main_frame_color = #f0f0f0,
+main_frame_padding = 10,
+main_frame_title_size = 20,
+
+--- Navigation Frame
+navigation_frame_width = 120,
+navigation_frame_color = #404040,
+navigation_button_padding = 10,
+navigation_button_height = 40,
+
+--- Command Frame
+command_frame_height = 50,
+command_frame_color = #808080,
+custom_command_checkbox_width = 20,
+command_frame_padding = 10,
+gather_button_width = 110,
+
+--- Arguments Frame
+argument_height = 25,
+argument_label_width = 60,
+argument_value_width = 150,
+argument_spacing = 15,
+
+--- Button Styling
+button_style = solid,
+button_font_size = 8,
